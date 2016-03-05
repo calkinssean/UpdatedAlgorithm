@@ -60,8 +60,11 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
 
 
     @IBOutlet weak var fileTableView: UITableView!
+    
     @IBAction func stopButton(sender: UIButton) {
+        
         recordAudioOnClickRelease()
+        
     }
     @IBAction func deleteButton(sender: UIButton) {
         
@@ -123,7 +126,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         return powf((powf(10.0, 0.05 * decibels) - powf(10.0, 0.05 * -60.0)) * (1.0 / (1.0 - powf(10.0, 0.05 * -60.0))), 1.0 / 2.0)
     }
     func updateProgress(){
-        updateMeters()
+        //updateMeters()
     }
     
     private func runMeterTimer(){
@@ -136,13 +139,13 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         print("Pressed")
         if !isRecording{
             isRecording = true
-            if soundFileURL != nil{
-                do{
-                    try NSFileManager.defaultManager().removeItemAtPath(soundFileURL.path!)
-                }catch let error as NSError{
-                    print(error)
-                }
-            }
+//            if soundFileURL != nil {
+//                do{
+//                    try NSFileManager.defaultManager().removeItemAtPath(soundFileURL.path!)
+//                }catch let error as NSError{
+//                    print(error)
+//                }
+//            }
             
        
             
@@ -188,12 +191,14 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
             if(recorder.recording){
                 recorder.stop()
             }
+             stopRecord()
 
             meterTimer.invalidate()
             timer.invalidate()
             
             waveViewInputType = nil
             setUpPlayer()
+            
         }
     }
     
@@ -242,17 +247,21 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @IBAction func stopRecord(){
-        waveViewInputType = nil
-        meterTimer.invalidate()
+        isRecording = false
         
+            }
+    
+    private func addFileToArray()
+    {
         let f = AudioFile()
         if let fileName = fileName {
             f.title = fileName
             f.loadUrl = soundFileURL
-            self.arrayOfFiles.insert(f, atIndex: 0)
+            self.arrayOfFiles.append(f)
             print(arrayOfFiles.count)
             self.fileTableView.reloadData()
         }
+
     }
     
     
@@ -278,7 +287,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     {
         recorder.updateMeters()
         updateTimes()
-        if((endLevel < -60 && startLevel < -60) || (endLevel >= 0 && startLevel >= 0))
+        if((endLevel < -30 && startLevel < -30) || (endLevel >= -10 && startLevel >= -10)) && isRecording
         {
             print("Splitting audio")
             splitAudio()
@@ -302,17 +311,32 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
             try AVAudioSession.sharedInstance().setActive(true)
             recorder.record()
             runMeterTimer()
+            startTime()
         }catch let error as NSError{
             print(error)
         }
         recorder.record()
     }
-
+    func getCourtSoundURL() -> NSURL
+    {
+        
+        
+        let audioFilename = getDocumentsDirectory().stringByAppendingPathComponent("court audio-"+userInfo)
+        let audioURL = NSURL(fileURLWithPath: audioFilename)
+        
+        return audioURL
+    }
+    
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as [String]
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
     
     private func getRecorderFileURLPath() -> String {
         
         let format = NSDateFormatter()
-        format.dateFormat = "hh.mm.ss"
+        format.dateFormat = "hh.mm.ssSSS"
         
         if let fileTitle = soundFileTitle {
             let currentFileName = "\(fileTitle)_\(format.stringFromDate(NSDate())).m4a"
@@ -348,7 +372,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         
-        self.stopRecord()
+//        self.stopRecord()
     }
     
     

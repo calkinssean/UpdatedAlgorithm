@@ -18,27 +18,13 @@ class MainViewController: UIViewController {
     @IBAction func recordButton(sender: UIButton) {
         
         userInfo = "\(caseNumberTextField.text!)"
-        getCourtSoundURL()
-        getDocumentsDirectory()
         performSegueWithIdentifier("showFilesSegue", sender: self)
         
     }
     
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as [String]
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
+  
     
-    func getCourtSoundURL() -> NSURL
-    {
-        
-        
-        let audioFilename = getDocumentsDirectory().stringByAppendingPathComponent("court audio-"+userInfo)
-        let audioURL = NSURL(fileURLWithPath: audioFilename)
-        
-        return audioURL
-    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showFilesSegue" {
             let controller = segue.destinationViewController as! FilesTableViewController
