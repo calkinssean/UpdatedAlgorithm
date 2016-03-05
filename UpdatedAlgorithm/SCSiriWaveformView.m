@@ -78,7 +78,7 @@ static const CGFloat kDefaultSecondaryLineWidth = 1.0f;
 	[self.backgroundColor set];
 	CGContextFillRect(context, rect);
 	
-	// We draw multiple sinus waves, with equal phases but altered amplitudes, multiplied by a parable function.
+	// We draw multiple sinus waves, with equal phases but altered amplitudes, multiplied by a parabolic function.
 	for (int i = 0; i < self.numberOfWaves; i++) {
 		CGContextRef context = UIGraphicsGetCurrentContext();
 		
