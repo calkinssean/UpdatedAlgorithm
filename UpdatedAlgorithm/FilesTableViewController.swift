@@ -52,6 +52,8 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     private var leftToolBarItem:UIBarButtonItem!
     private var blurView: UIVisualEffectView!
     
+    
+    //Split sound variables
     private var startLevel, endLevel : Float!
     private var timer : NSTimer!
     private var waitTime : NSTimeInterval!
@@ -77,6 +79,10 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         
         timer = NSTimer()
         waitTime = 1.500;
+        
+        let waveRect = CGRectMake(0, view.bounds.midY, view.bounds.width, 40.0)
+        waveView = SCSiriWaveformView.init(frame: waveRect)
+        view.addSubview(waveView)
         
         setUpRecorder()
         recordAudioOnClick()
@@ -117,6 +123,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         return powf((powf(10.0, 0.05 * decibels) - powf(10.0, 0.05 * -60.0)) * (1.0 / (1.0 - powf(10.0, 0.05 * -60.0))), 1.0 / 2.0)
     }
     func updateProgress(){
+        updateMeters()
     }
     
     private func runMeterTimer(){
