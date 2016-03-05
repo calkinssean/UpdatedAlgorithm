@@ -183,6 +183,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
             }
 
             meterTimer.invalidate()
+            timer.invalidate()
             
             waveViewInputType = nil
             setUpPlayer()
@@ -238,8 +239,8 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         meterTimer.invalidate()
         
         let f = AudioFile()
-        if let soundFileTitle = soundFileTitle {
-            f.title = soundFileTitle
+        if let fileName = fileName {
+            f.title = fileName
             f.loadUrl = soundFileURL
             self.arrayOfFiles.insert(f, atIndex: 0)
             print(arrayOfFiles.count)
