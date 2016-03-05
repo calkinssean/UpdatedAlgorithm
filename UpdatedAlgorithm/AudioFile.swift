@@ -11,7 +11,7 @@ import Foundation
 class AudioFile {
     
     var title: String = ""
-    
+    var loadUrl: NSURL?
     init() {
         
     }

@@ -62,21 +62,20 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         arrayOfFiles.removeAll()
      
         fileTableView.reloadData()
-        
-        
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "\(userInfo)"
+        self.soundFileTitle = "\(userInfo)"
         setUpRecorder()
         recordAudioOnClick()
-        navigationItem.title = "\(userInfo)"
-        
-        
     }
     
     
-    func updateMeters(){
+    func updateMeters()
+    {
         
         var normalizedValue:Float = 0.0
         switch waveViewInputType{
@@ -176,11 +175,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     
     
     func cancelBarButtonOnClick(){
-        
-        toolBar.removeFromSuperview()
-        waveView.removeFromSuperview()
-        stopBtn.removeFromSuperview()
-        playBtn.removeFromSuperview()
+     
         
         if displayLink != nil{
             displayLink.invalidate()
@@ -213,9 +208,8 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
             
 
             
-            stopBtn.enabled = true
-            playBtn.enabled = false
-            recorderImgBtn.enabled = false
+          
+        
             waveViewInputType = SCSiriWaveformViewInputType.Player
             
             player.play()
@@ -229,35 +223,41 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
             player.stop()
             
             player.currentTime = 0
-            
-            playBtn.enabled = true
-            stopBtn.enabled = false
-            recorderImgBtn.enabled = true
-            
             waveViewInputType = nil
             meterTimer.invalidate()
+            
+                        }
+        let f = AudioFile()
+        if let soundFileTitle = soundFileTitle {
+            f.title = soundFileTitle
+            f.loadUrl = soundFileURL
+            self.arrayOfFiles.insert(f, atIndex: 0)
+            print(arrayOfFiles.count)
+            self.fileTableView.reloadData()
         }
     }
     
     
-    private func getRecorderFileURLPath(){
+    private func getRecorderFileURLPath() -> String {
         
         let format = NSDateFormatter()
         format.dateFormat = "YYYY.MM.dd-hh.mm.ss"
         
-        if let fileTitle = soundFileTitle{
+        if let fileTitle = soundFileTitle {
             let currentFileName = "record_\(fileTitle)_\(format.stringFromDate(NSDate())).m4a"
             fileName = currentFileName
             let documentDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
             soundFileURL = documentDirectory.URLByAppendingPathComponent(currentFileName)
-            
+            return currentFileName
         }else{
             
             let currentFileName = "record_\(format.stringFromDate(NSDate())).m4a"
             let documentDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
             soundFileURL = documentDirectory.URLByAppendingPathComponent(currentFileName)
             fileName = currentFileName
+            return currentFileName
         }
+        
     }
     
     
