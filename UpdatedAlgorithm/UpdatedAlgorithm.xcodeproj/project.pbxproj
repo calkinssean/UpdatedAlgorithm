@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		141736501C8AED680022861D /* ISAudioRecorderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417364B1C8AED680022861D /* ISAudioRecorderViewDelegate.swift */; };
-		141736511C8AED680022861D /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1417364E1C8AED680022861D /* SCSiriWaveformView.m */; };
+		141736431C8AE80E0022861D /* ISAudioRecorderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141736421C8AE80E0022861D /* ISAudioRecorderViewDelegate.swift */; };
+		141736471C8AE88F0022861D /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141736461C8AE88F0022861D /* SCSiriWaveformView.m */; };
 		1BAE04F91C8AE59D001539BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE04F81C8AE59D001539BB /* AppDelegate.swift */; };
 		1BAE04FB1C8AE59D001539BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE04FA1C8AE59D001539BB /* ViewController.swift */; };
 		1BAE04FE1C8AE59D001539BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE04FC1C8AE59D001539BB /* Main.storyboard */; };
@@ -24,11 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1417364B1C8AED680022861D /* ISAudioRecorderViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ISAudioRecorderViewDelegate.swift; path = UpdatedAlgorithm/ISAudioRecorderViewDelegate.swift; sourceTree = "<group>"; };
-		1417364C1C8AED680022861D /* ISHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHeader.h; path = UpdatedAlgorithm/ISHeader.h; sourceTree = "<group>"; };
-		1417364D1C8AED680022861D /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSiriWaveformView.h; path = UpdatedAlgorithm/SCSiriWaveformView.h; sourceTree = "<group>"; };
-		1417364E1C8AED680022861D /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSiriWaveformView.m; path = UpdatedAlgorithm/SCSiriWaveformView.m; sourceTree = "<group>"; };
-		1417364F1C8AED680022861D /* UpdatedAlgorithm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UpdatedAlgorithm-Bridging-Header.h"; path = "UpdatedAlgorithm/UpdatedAlgorithm-Bridging-Header.h"; sourceTree = "<group>"; };
+		141736421C8AE80E0022861D /* ISAudioRecorderViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISAudioRecorderViewDelegate.swift; sourceTree = "<group>"; };
+		141736441C8AE88E0022861D /* UpdatedAlgorithm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UpdatedAlgorithm-Bridging-Header.h"; sourceTree = "<group>"; };
+		141736451C8AE88F0022861D /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCSiriWaveformView.h; path = UpdatedAlgorithm/SCSiriWaveformView.h; sourceTree = "<group>"; };
+		141736461C8AE88F0022861D /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCSiriWaveformView.m; path = UpdatedAlgorithm/SCSiriWaveformView.m; sourceTree = "<group>"; };
+		141736491C8AE9B60022861D /* ISHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHeader.h; path = UpdatedAlgorithm/ISHeader.h; sourceTree = "<group>"; };
 		1BAE04F51C8AE59D001539BB /* UpdatedAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpdatedAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAE04F81C8AE59D001539BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BAE04FA1C8AE59D001539BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,30 +56,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		141736531C8AEE780022861D /* Wave */ = {
+		141736481C8AE89D0022861D /* SCSiriWaveformView */ = {
 			isa = PBXGroup;
 			children = (
-				1417364D1C8AED680022861D /* SCSiriWaveformView.h */,
-				1417364E1C8AED680022861D /* SCSiriWaveformView.m */,
+				141736451C8AE88F0022861D /* SCSiriWaveformView.h */,
+				141736461C8AE88F0022861D /* SCSiriWaveformView.m */,
 			);
-			name = Wave;
+			name = SCSiriWaveformView;
 			sourceTree = "<group>";
 		};
 		1BAE04EC1C8AE59C001539BB = {
 			isa = PBXGroup;
 			children = (
+				141736421C8AE80E0022861D /* ISAudioRecorderViewDelegate.swift */,
 				1BAE05121C8AE65D001539BB /* MainViewController.swift */,
-				1417364B1C8AED680022861D /* ISAudioRecorderViewDelegate.swift */,
-				1417364C1C8AED680022861D /* ISHeader.h */,
-				141736531C8AEE780022861D /* Wave */,
-				1417364F1C8AED680022861D /* UpdatedAlgorithm-Bridging-Header.h */,
 				1BAE05141C8AE678001539BB /* Base.lproj */,
 				1BAE050A1C8AE64B001539BB /* Assets.xcassets */,
 				1BAE050B1C8AE64B001539BB /* AudioFile.swift */,
 				1BAE050C1C8AE64B001539BB /* FilesTableViewCell.swift */,
 				1BAE050D1C8AE64B001539BB /* FilesTableViewController.swift */,
+				141736481C8AE89D0022861D /* SCSiriWaveformView */,
 				1BAE04F71C8AE59D001539BB /* UpdatedAlgorithm */,
 				1BAE04F61C8AE59D001539BB /* Products */,
+				141736441C8AE88E0022861D /* UpdatedAlgorithm-Bridging-Header.h */,
+				141736491C8AE9B60022861D /* ISHeader.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,10 +192,10 @@
 				1BAE050F1C8AE64C001539BB /* AudioFile.swift in Sources */,
 				1BAE05101C8AE64C001539BB /* FilesTableViewCell.swift in Sources */,
 				1BAE05111C8AE64C001539BB /* FilesTableViewController.swift in Sources */,
-				141736501C8AED680022861D /* ISAudioRecorderViewDelegate.swift in Sources */,
+				141736431C8AE80E0022861D /* ISAudioRecorderViewDelegate.swift in Sources */,
 				1BAE05131C8AE65D001539BB /* MainViewController.swift in Sources */,
 				1BAE04FB1C8AE59D001539BB /* ViewController.swift in Sources */,
-				141736511C8AED680022861D /* SCSiriWaveformView.m in Sources */,
+				141736471C8AE88F0022861D /* SCSiriWaveformView.m in Sources */,
 				1BAE04F91C8AE59D001539BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
