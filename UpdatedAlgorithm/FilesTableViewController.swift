@@ -241,7 +241,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     private func getRecorderFileURLPath() -> String {
         
         let format = NSDateFormatter()
-        format.dateFormat = "YYYY.MM.dd-hh.mm.ss"
+        format.dateFormat = "hh.mm.ss"
         
         if let fileTitle = soundFileTitle {
             let currentFileName = "record_\(fileTitle)_\(format.stringFromDate(NSDate())).m4a"
