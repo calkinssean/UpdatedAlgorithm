@@ -70,6 +70,7 @@
                                 <state key="normal" title="STOP"/>
                                 <connections>
                                     <action selector="stopButton:" destination="gcf-tA-K5Y" eventType="touchUpInside" id="C1x-qD-WLg"/>
+                                    <action selector="stopRecord" destination="gcf-tA-K5Y" eventType="touchUpInside" id="sPX-Mo-v6e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzz-wS-e4a">
@@ -105,6 +106,7 @@
                                                     <state key="normal" image="playButton"/>
                                                     <connections>
                                                         <action selector="playFileButton:" destination="Wm6-17-J97" eventType="touchUpInside" id="9Vp-Pf-8rc"/>
+                                                        <action selector="playRecord" destination="gcf-tA-K5Y" eventType="touchUpInside" id="JJx-E5-k9e"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

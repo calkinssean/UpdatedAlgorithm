@@ -55,7 +55,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var fileTableView: UITableView!
     @IBAction func stopButton(sender: UIButton) {
-        
+        recordAudioOnClickRealease()
     }
     @IBAction func deleteButton(sender: UIButton) {
         
@@ -68,7 +68,8 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        setUpRecorder()
+        recordAudioOnClick()
         navigationItem.title = "\(userInfo)"
         
         
@@ -116,7 +117,6 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         print("Pressed")
         if !isRecording{
             isRecording = true
-            playBtn.enabled = false
             if soundFileURL != nil{
                 do{
                     try NSFileManager.defaultManager().removeItemAtPath(soundFileURL.path!)
@@ -165,12 +165,10 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         
         if isRecording{
             isRecording = false
-            rightToolBarItem.enabled = true
         
             recorder.stop()
             meterTimer.invalidate()
             
-            playBtn.enabled = true
             waveViewInputType = nil
             setUpPlayer()
         }
@@ -208,7 +206,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func playRecord(){
+    @IBAction func playRecord(){
         
         if !isPlaying && player != nil{
             isPlaying = true
@@ -224,7 +222,7 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
             runMeterTimer()
         }
     }
-    func stopRecord(){
+    @IBAction func stopRecord(){
         
         if isPlaying{
             isPlaying = false
