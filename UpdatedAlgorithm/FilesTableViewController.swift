@@ -244,14 +244,14 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         format.dateFormat = "hh.mm.ss"
         
         if let fileTitle = soundFileTitle {
-            let currentFileName = "record_\(fileTitle)_\(format.stringFromDate(NSDate())).m4a"
+            let currentFileName = "\(fileTitle)_\(format.stringFromDate(NSDate())).m4a"
             fileName = currentFileName
             let documentDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
             soundFileURL = documentDirectory.URLByAppendingPathComponent(currentFileName)
             return currentFileName
         }else{
             
-            let currentFileName = "record_\(format.stringFromDate(NSDate())).m4a"
+            let currentFileName = "\(format.stringFromDate(NSDate())).m4a"
             let documentDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
             soundFileURL = documentDirectory.URLByAppendingPathComponent(currentFileName)
             fileName = currentFileName
