@@ -217,16 +217,8 @@ class FilesTableViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     @IBAction func stopRecord(){
-        
-        if isPlaying{
-            isPlaying = false
-            player.stop()
-            
-            player.currentTime = 0
-            waveViewInputType = nil
-            meterTimer.invalidate()
-            
-                        }
+        waveViewInputType = nil
+        meterTimer.invalidate()
         let f = AudioFile()
         if let soundFileTitle = soundFileTitle {
             f.title = soundFileTitle
